@@ -1,0 +1,16 @@
+v0.3
+-Player HP Bar GUI added
+-Enemy HP Bars added
+-Game no longer crashes when the player dies
+
+v0.3.1
+-Item base-scene + script added
+-Health Item added
+-Logic for detecting nearby item and picking up item with Q has been added
+-Player can now press SPACE after death to restart the scene
+-Enemies no longer headbutt the player, but stop following once they are close enough
+
+v0.3.2
+-Prints "credits" and version number whenever the main scene is created
+-Added TripleShoot Item
+-Added DamageUp Item

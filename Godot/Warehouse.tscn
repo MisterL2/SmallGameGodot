@@ -1,0 +1,1238 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://World.gd" type="Script" id=1]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Solid_Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Destructible_Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Health_Item.tscn" type="PackedScene" id=8]
+[ext_resource path="res://TripleShoot_Item.tscn" type="PackedScene" id=9]
+[ext_resource path="res://DamageUp_Item.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 400, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 512, 1 )
+
+[node name="Warehouse" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 0.0 ],
+"_edit_vertical_guides_": [ 0.0 ]
+}
+
+[node name="GUI" parent="." instance=ExtResource( 2 )]
+margin_right = 544.0
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, 160 )
+z_index = 1
+
+[node name="Solid Walls" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Solid_Wall" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 340 )
+
+[node name="Solid_Wall15" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 308 )
+
+[node name="Solid_Wall39" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 148 )
+
+[node name="Solid_Wall23" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 400, 436 )
+
+[node name="Solid_Wall71" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 565 )
+
+[node name="Solid_Wall93" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 693 )
+
+[node name="Solid_Wall106" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 693 )
+
+[node name="Solid_Wall117" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 80, 789 )
+
+[node name="Solid_Wall129" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 80, 884 )
+
+[node name="Solid_Wall153" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 80, 116 )
+
+[node name="Solid_Wall221" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 116 )
+
+[node name="Solid_Wall132" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 884 )
+
+[node name="Solid_Wall256" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 884 )
+
+[node name="Solid_Wall154" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 116 )
+
+[node name="Solid_Wall222" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 116 )
+
+[node name="Solid_Wall138" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 884 )
+
+[node name="Solid_Wall264" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 880, 884 )
+
+[node name="Solid_Wall195" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 116 )
+
+[node name="Solid_Wall74" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 80, 565 )
+
+[node name="Solid_Wall78" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 96, 404 )
+
+[node name="Solid_Wall79" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 128, 404 )
+
+[node name="Solid_Wall80" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 96, 436 )
+
+[node name="Solid_Wall81" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 128, 436 )
+
+[node name="Solid_Wall64" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 432, 565 )
+
+[node name="Solid_Wall33" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 436 )
+
+[node name="Solid_Wall67" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 304, 565 )
+
+[node name="Solid_Wall92" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 304, 693 )
+
+[node name="Solid_Wall118" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 144, 789 )
+
+[node name="Solid_Wall130" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 144, 884 )
+
+[node name="Solid_Wall199" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 144, 116 )
+
+[node name="Solid_Wall218" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 720, 116 )
+
+[node name="Solid_Wall135" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 884 )
+
+[node name="Solid_Wall261" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 752, 884 )
+
+[node name="Solid_Wall186" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 116 )
+
+[node name="Solid_Wall216" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 912, 116 )
+
+[node name="Solid_Wall141" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 528, 884 )
+
+[node name="Solid_Wall271" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 528, 660 )
+
+[node name="Solid_Wall262" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 944, 884 )
+
+[node name="Solid_Wall193" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 528, 116 )
+
+[node name="Solid_Wall61" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 565 )
+
+[node name="Solid_Wall148" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 565 )
+
+[node name="Solid_Wall66" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 533 )
+
+[node name="Solid_Wall53" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 592, 436 )
+
+[node name="Solid_Wall29" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 432, 340 )
+
+[node name="Solid_Wall169" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 752, 148 )
+
+[node name="Solid_Wall190" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 944, 244 )
+
+[node name="Solid_Wall249" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 944, 372 )
+
+[node name="Solid_Wall182" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 752, 308 )
+
+[node name="Solid_Wall183" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 276 )
+
+[node name="Solid_Wall184" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 244 )
+
+[node name="Solid_Wall185" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 752, 276 )
+
+[node name="Solid_Wall47" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 592, 212 )
+
+[node name="Solid_Wall43" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 528, 212 )
+
+[node name="Solid_Wall6" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 340 )
+
+[node name="Solid_Wall108" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 597 )
+
+[node name="Solid_Wall150" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 692 )
+
+[node name="Solid_Wall113" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 597 )
+
+[node name="Solid_Wall151" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 692 )
+
+[node name="Solid_Wall14" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 308 )
+
+[node name="Solid_Wall38" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 304, 148 )
+
+[node name="Solid_Wall22" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 368, 436 )
+
+[node name="Solid_Wall69" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 565 )
+
+[node name="Solid_Wall94" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 693 )
+
+[node name="Solid_Wall105" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 693 )
+
+[node name="Solid_Wall116" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 48, 789 )
+
+[node name="Solid_Wall128" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 48, 884 )
+
+[node name="Solid_Wall197" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 48, 116 )
+
+[node name="Solid_Wall220" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 116 )
+
+[node name="Solid_Wall134" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 884 )
+
+[node name="Solid_Wall260" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 884 )
+
+[node name="Solid_Wall274" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 660 )
+
+[node name="Solid_Wall290" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 500 )
+
+[node name="Solid_Wall297" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 660 )
+
+[node name="Solid_Wall299" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 912, 628 )
+
+[node name="Solid_Wall303" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 912, 468 )
+
+[node name="Solid_Wall159" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 116 )
+
+[node name="Solid_Wall210" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 116 )
+
+[node name="Solid_Wall140" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 432, 884 )
+
+[node name="Solid_Wall269" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 884 )
+
+[node name="Solid_Wall203" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 432, 116 )
+
+[node name="Solid_Wall209" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 116 )
+
+[node name="Solid_Wall235" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 276 )
+
+[node name="Solid_Wall244" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 564 )
+
+[node name="Solid_Wall252" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 852 )
+
+[node name="Solid_Wall76" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 144, 565 )
+
+[node name="Solid_Wall26" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 400, 340 )
+
+[node name="Solid_Wall170" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 720, 148 )
+
+[node name="Solid_Wall188" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 912, 244 )
+
+[node name="Solid_Wall250" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 912, 372 )
+
+[node name="Solid_Wall180" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 720, 308 )
+
+[node name="Solid_Wall42" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 212 )
+
+[node name="Solid_Wall7" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 340 )
+
+[node name="Solid_Wall107" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 597 )
+
+[node name="Solid_Wall161" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 692 )
+
+[node name="Solid_Wall147" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 597 )
+
+[node name="Solid_Wall158" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 692 )
+
+[node name="Solid_Wall162" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 757 )
+
+[node name="Solid_Wall163" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 757 )
+
+[node name="Solid_Wall164" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 821 )
+
+[node name="Solid_Wall166" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 789 )
+
+[node name="Solid_Wall167" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 304, 821 )
+
+[node name="Solid_Wall168" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 789 )
+
+[node name="Solid_Wall165" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 821 )
+
+[node name="Solid_Wall16" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 144, 308 )
+
+[node name="Solid_Wall35" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 148 )
+
+[node name="Solid_Wall20" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 436 )
+
+[node name="Solid_Wall25" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 368, 340 )
+
+[node name="Solid_Wall171" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 148 )
+
+[node name="Solid_Wall191" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 880, 244 )
+
+[node name="Solid_Wall41" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 212 )
+
+[node name="Solid_Wall48" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 180 )
+
+[node name="Solid_Wall174" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 148 )
+
+[node name="Solid_Wall50" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 276 )
+
+[node name="Solid_Wall175" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 276 )
+
+[node name="Solid_Wall258" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 340 )
+
+[node name="Solid_Wall233" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 180 )
+
+[node name="Solid_Wall242" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 468 )
+
+[node name="Solid_Wall254" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 756 )
+
+[node name="Solid_Wall237" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 340 )
+
+[node name="Solid_Wall243" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 628 )
+
+[node name="Solid_Wall56" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 372 )
+
+[node name="Solid_Wall121" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 148 )
+
+[node name="Solid_Wall206" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 308 )
+
+[node name="Solid_Wall57" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 468 )
+
+[node name="Solid_Wall283" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 564 )
+
+[node name="Solid_Wall300" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 756 )
+
+[node name="Solid_Wall314" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 788 )
+
+[node name="Solid_Wall317" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 820 )
+
+[node name="Solid_Wall318" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 820 )
+
+[node name="Solid_Wall307" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 756 )
+
+[node name="Solid_Wall315" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 788 )
+
+[node name="Solid_Wall312" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 756 )
+
+[node name="Solid_Wall319" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 880, 756 )
+
+[node name="Solid_Wall316" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 788 )
+
+[node name="Solid_Wall320" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 880, 788 )
+
+[node name="Solid_Wall277" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 724 )
+
+[node name="Solid_Wall208" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 244 )
+
+[node name="Solid_Wall225" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 404 )
+
+[node name="Solid_Wall228" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 500 )
+
+[node name="Solid_Wall59" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 532 )
+
+[node name="Solid_Wall282" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 628 )
+
+[node name="Solid_Wall276" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 788 )
+
+[node name="Solid_Wall17" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 112, 308 )
+
+[node name="Solid_Wall40" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 148 )
+
+[node name="Solid_Wall24" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 304, 436 )
+
+[node name="Solid_Wall27" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 340 )
+
+[node name="Solid_Wall172" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 148 )
+
+[node name="Solid_Wall189" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 244 )
+
+[node name="Solid_Wall239" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 372 )
+
+[node name="Solid_Wall181" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 308 )
+
+[node name="Solid_Wall19" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 436 )
+
+[node name="Solid_Wall13" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 212 )
+
+[node name="Solid_Wall11" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 244 )
+
+[node name="Solid_Wall36" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 276 )
+
+[node name="Solid_Wall44" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 148 )
+
+[node name="Solid_Wall2" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 372 )
+
+[node name="Solid_Wall31" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 432, 372 )
+
+[node name="Solid_Wall5" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 372 )
+
+[node name="Solid_Wall109" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 629 )
+
+[node name="Solid_Wall155" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 852 )
+
+[node name="Solid_Wall114" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 629 )
+
+[node name="Solid_Wall152" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 852 )
+
+[node name="Solid_Wall8" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 372 )
+
+[node name="Solid_Wall112" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 629 )
+
+[node name="Solid_Wall160" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 852 )
+
+[node name="Solid_Wall146" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 629 )
+
+[node name="Solid_Wall156" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 852 )
+
+[node name="Solid_Wall10" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 276 )
+
+[node name="Solid_Wall34" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 308 )
+
+[node name="Solid_Wall45" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 180 )
+
+[node name="Solid_Wall49" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 148 )
+
+[node name="Solid_Wall51" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 244 )
+
+[node name="Solid_Wall176" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 244 )
+
+[node name="Solid_Wall232" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 148 )
+
+[node name="Solid_Wall241" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 436 )
+
+[node name="Solid_Wall253" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 724 )
+
+[node name="Solid_Wall236" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 308 )
+
+[node name="Solid_Wall245" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 596 )
+
+[node name="Solid_Wall251" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 884 )
+
+[node name="Solid_Wall3" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 404 )
+
+[node name="Solid_Wall30" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 432, 404 )
+
+[node name="Solid_Wall4" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 404 )
+
+[node name="Solid_Wall111" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 662 )
+
+[node name="Solid_Wall144" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 661 )
+
+[node name="Solid_Wall9" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 404 )
+
+[node name="Solid_Wall110" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 662 )
+
+[node name="Solid_Wall145" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 661 )
+
+[node name="Solid_Wall12" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 240, 308 )
+
+[node name="Solid_Wall37" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 368, 148 )
+
+[node name="Solid_Wall21" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 432, 436 )
+
+[node name="Solid_Wall70" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 565 )
+
+[node name="Solid_Wall95" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 693 )
+
+[node name="Solid_Wall119" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 112, 789 )
+
+[node name="Solid_Wall131" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 112, 884 )
+
+[node name="Solid_Wall200" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 112, 116 )
+
+[node name="Solid_Wall219" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 116 )
+
+[node name="Solid_Wall136" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 304, 884 )
+
+[node name="Solid_Wall266" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 720, 884 )
+
+[node name="Solid_Wall198" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 304, 116 )
+
+[node name="Solid_Wall207" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 880, 116 )
+
+[node name="Solid_Wall142" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 884 )
+
+[node name="Solid_Wall263" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 912, 884 )
+
+[node name="Solid_Wall194" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 116 )
+
+[node name="Solid_Wall77" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 112, 565 )
+
+[node name="Solid_Wall63" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 565 )
+
+[node name="Solid_Wall149" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 565 )
+
+[node name="Solid_Wall65" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 533 )
+
+[node name="Solid_Wall72" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 272, 533 )
+
+[node name="Solid_Wall73" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 565 )
+
+[node name="Solid_Wall75" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 564 )
+
+[node name="Solid_Wall82" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 597 )
+
+[node name="Solid_Wall99" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 596 )
+
+[node name="Solid_Wall87" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 693 )
+
+[node name="Solid_Wall100" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 693 )
+
+[node name="Solid_Wall127" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 820 )
+
+[node name="Solid_Wall103" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 661 )
+
+[node name="Solid_Wall90" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 597 )
+
+[node name="Solid_Wall83" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 629 )
+
+[node name="Solid_Wall97" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 629 )
+
+[node name="Solid_Wall102" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 597 )
+
+[node name="Solid_Wall85" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 725 )
+
+[node name="Solid_Wall125" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 852 )
+
+[node name="Solid_Wall123" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 852 )
+
+[node name="Solid_Wall88" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 693 )
+
+[node name="Solid_Wall91" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 693 )
+
+[node name="Solid_Wall104" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 693 )
+
+[node name="Solid_Wall84" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 661 )
+
+[node name="Solid_Wall98" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 661 )
+
+[node name="Solid_Wall101" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 629 )
+
+[node name="Solid_Wall86" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 757 )
+
+[node name="Solid_Wall122" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 884 )
+
+[node name="Solid_Wall270" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 592, 884 )
+
+[node name="Solid_Wall275" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 592, 660 )
+
+[node name="Solid_Wall291" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 752, 500 )
+
+[node name="Solid_Wall293" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 500 )
+
+[node name="Solid_Wall204" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 116 )
+
+[node name="Solid_Wall211" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 752, 116 )
+
+[node name="Solid_Wall137" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 368, 884 )
+
+[node name="Solid_Wall259" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 884 )
+
+[node name="Solid_Wall157" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 368, 116 )
+
+[node name="Solid_Wall205" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 944, 116 )
+
+[node name="Solid_Wall139" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 560, 884 )
+
+[node name="Solid_Wall272" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 560, 660 )
+
+[node name="Solid_Wall289" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 720, 500 )
+
+[node name="Solid_Wall296" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 660 )
+
+[node name="Solid_Wall292" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 500 )
+
+[node name="Solid_Wall267" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 884 )
+
+[node name="Solid_Wall201" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 560, 116 )
+
+[node name="Solid_Wall115" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 789 )
+
+[node name="Solid_Wall124" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 884 )
+
+[node name="Solid_Wall126" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 116 )
+
+[node name="Solid_Wall213" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 592, 116 )
+
+[node name="Solid_Wall133" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 884 )
+
+[node name="Solid_Wall268" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 884 )
+
+[node name="Solid_Wall273" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 660 )
+
+[node name="Solid_Wall288" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 500 )
+
+[node name="Solid_Wall295" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 752, 660 )
+
+[node name="Solid_Wall304" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 880, 468 )
+
+[node name="Solid_Wall306" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 468 )
+
+[node name="Solid_Wall202" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 208, 116 )
+
+[node name="Solid_Wall212" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 116 )
+
+[node name="Solid_Wall143" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 400, 884 )
+
+[node name="Solid_Wall265" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 884 )
+
+[node name="Solid_Wall196" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 400, 116 )
+
+[node name="Solid_Wall217" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 116 )
+
+[node name="Solid_Wall89" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 661 )
+
+[node name="Solid_Wall32" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 496, 436 )
+
+[node name="Solid_Wall68" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 565 )
+
+[node name="Solid_Wall96" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 336, 693 )
+
+[node name="Solid_Wall120" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 176, 789 )
+
+[node name="Solid_Wall62" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 528, 565 )
+
+[node name="Solid_Wall54" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 436 )
+
+[node name="Solid_Wall286" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 532 )
+
+[node name="Solid_Wall309" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 724 )
+
+[node name="Solid_Wall310" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 724 )
+
+[node name="Solid_Wall311" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 724 )
+
+[node name="Solid_Wall321" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 880, 724 )
+
+[node name="Solid_Wall279" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 692 )
+
+[node name="Solid_Wall331" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 692 )
+
+[node name="Solid_Wall223" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 212 )
+
+[node name="Solid_Wall226" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 372 )
+
+[node name="Solid_Wall229" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 468 )
+
+[node name="Solid_Wall28" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 464, 340 )
+
+[node name="Solid_Wall173" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 148 )
+
+[node name="Solid_Wall187" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 244 )
+
+[node name="Solid_Wall246" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 372 )
+
+[node name="Solid_Wall192" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 244 )
+
+[node name="Solid_Wall248" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 820 )
+
+[node name="Solid_Wall234" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 404 )
+
+[node name="Solid_Wall247" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 692 )
+
+[node name="Solid_Wall179" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 308 )
+
+[node name="Solid_Wall46" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 212 )
+
+[node name="Solid_Wall178" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 180 )
+
+[node name="Solid_Wall52" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 308 )
+
+[node name="Solid_Wall177" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 308 )
+
+[node name="Solid_Wall257" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 372 )
+
+[node name="Solid_Wall231" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 212 )
+
+[node name="Solid_Wall255" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 788 )
+
+[node name="Solid_Wall238" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 372 )
+
+[node name="Solid_Wall240" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 660 )
+
+[node name="Solid_Wall322" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 1008, 660 )
+
+[node name="Solid_Wall323" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 660 )
+
+[node name="Solid_Wall324" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 692 )
+
+[node name="Solid_Wall325" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 724 )
+
+[node name="Solid_Wall326" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 944, 660 )
+
+[node name="Solid_Wall55" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 404 )
+
+[node name="Solid_Wall284" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 500 )
+
+[node name="Solid_Wall302" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 784, 692 )
+
+[node name="Solid_Wall308" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 692 )
+
+[node name="Solid_Wall313" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 692 )
+
+[node name="Solid_Wall294" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 816, 660 )
+
+[node name="Solid_Wall298" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 944, 628 )
+
+[node name="Solid_Wall214" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 180 )
+
+[node name="Solid_Wall224" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 340 )
+
+[node name="Solid_Wall58" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 500 )
+
+[node name="Solid_Wall285" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 596 )
+
+[node name="Solid_Wall278" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 756 )
+
+[node name="Solid_Wall215" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 276 )
+
+[node name="Solid_Wall227" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 436 )
+
+[node name="Solid_Wall230" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 532 )
+
+[node name="Solid_Wall60" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 624, 564 )
+
+[node name="Solid_Wall287" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 848, 660 )
+
+[node name="Solid_Wall301" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 976, 628 )
+
+[node name="Solid_Wall305" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 944, 468 )
+
+[node name="Solid_Wall280" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 820 )
+
+[node name="Solid_Wall281" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 656, 852 )
+
+[node name="Solid_Wall327" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 852 )
+
+[node name="Solid_Wall328" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 821 )
+
+[node name="Solid_Wall329" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 720, 852 )
+
+[node name="Solid_Wall330" parent="Solid Walls" instance=ExtResource( 4 )]
+position = Vector2( 688, 789 )
+
+[node name="Destructible Walls" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Destructible_Wall" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 304, 340 )
+
+[node name="Destructible_Wall5" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 880, 372 )
+
+[node name="Destructible_Wall2" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 560, 212 )
+
+[node name="Destructible_Wall3" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 176, 629 )
+
+[node name="Destructible_Wall4" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 176, 820 )
+
+[node name="Destructible_Wall13" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 464, 820 )
+
+[node name="Destructible_Wall19" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 496, 820 )
+
+[node name="Destructible_Wall14" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 464, 788 )
+
+[node name="Destructible_Wall24" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 496, 788 )
+
+[node name="Destructible_Wall15" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 464, 756 )
+
+[node name="Destructible_Wall16" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 784, 564 )
+
+[node name="Destructible_Wall17" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 752, 532 )
+
+[node name="Destructible_Wall18" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 752, 564 )
+
+[node name="Destructible_Wall25" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 880, 628 )
+
+[node name="Destructible_Wall20" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 816, 596 )
+
+[node name="Destructible_Wall23" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 720, 532 )
+
+[node name="Destructible_Wall21" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 496, 756 )
+
+[node name="Destructible_Wall22" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 816, 564 )
+
+[node name="Destructible_Wall26" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 464, 724 )
+
+[node name="Destructible_Wall27" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 784, 532 )
+
+[node name="Destructible_Wall28" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 496, 724 )
+
+[node name="Destructible_Wall12" parent="Destructible Walls" instance=ExtResource( 5 )]
+position = Vector2( 304, 757 )
+
+[node name="World boundary" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="World boundary"]
+editor/display_folded = true
+visible = false
+position = Vector2( 1021, 109 )
+rotation = 1.5708
+collision_mask = 7175
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="World boundary/StaticBody2D5"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 392, -4 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 8, 8, 800, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World boundary/StaticBody2D5"]
+position = Vector2( 392, -4 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="World boundary"]
+editor/display_folded = true
+visible = false
+position = Vector2( -2, 109 )
+rotation = 1.5708
+collision_mask = 7175
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="World boundary/StaticBody2D7"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 392, -1 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 8, 8, 800, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World boundary/StaticBody2D7"]
+position = Vector2( 392, -1 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="World boundary"]
+editor/display_folded = true
+visible = false
+position = Vector2( 8, 109 )
+collision_mask = 7175
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="World boundary/StaticBody2D3"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 504, -9 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 8, 8, 1024, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World boundary/StaticBody2D3"]
+position = Vector2( 504, -9 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="World boundary"]
+editor/display_folded = true
+visible = false
+position = Vector2( 8, 899 )
+collision_mask = 7175
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="World boundary/StaticBody2D6"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 504, 2 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 8, 8, 1024, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World boundary/StaticBody2D6"]
+position = Vector2( 504, 2 )
+shape = SubResource( 2 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 312, 248 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 936, 200 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 784, 464 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 923, 312 )
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 550, 520 )
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 96, 704 )
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 949, 792 )
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 192, 512 )
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Health Items" type="Node" parent="Items"]
+
+[node name="Health_Item" parent="Items/Health Items" instance=ExtResource( 8 )]
+position = Vector2( 384, 384 )
+
+[node name="Health_Item2" parent="Items/Health Items" instance=ExtResource( 8 )]
+position = Vector2( 304, 789 )
+
+[node name="Health_Item3" parent="Items/Health Items" instance=ExtResource( 8 )]
+position = Vector2( 616, 728 )
+
+[node name="Health_Item4" parent="Items/Health Items" instance=ExtResource( 8 )]
+position = Vector2( 933, 544 )
+
+[node name="TripleShoot Items" type="Node" parent="Items"]
+
+[node name="TripleShoot" parent="Items/TripleShoot Items" instance=ExtResource( 9 )]
+position = Vector2( 256, 629 )
+
+[node name="TripleShoot2" parent="Items/TripleShoot Items" instance=ExtResource( 9 )]
+position = Vector2( 704, 216 )
+
+[node name="DamageUp Items" type="Node" parent="Items"]
+
+[node name="DamageUp" parent="Items/DamageUp Items" instance=ExtResource( 10 )]
+position = Vector2( 544, 164 )
+
+[node name="DamageUp2" parent="Items/DamageUp Items" instance=ExtResource( 10 )]
+position = Vector2( 96, 832 )
+
