@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Health_Item.tscn" type="PackedScene" id=8]
 [ext_resource path="res://TripleShoot_Item.tscn" type="PackedScene" id=9]
 [ext_resource path="res://DamageUp_Item.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Key.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 400, 1 )
@@ -1235,4 +1236,9 @@ position = Vector2( 544, 164 )
 
 [node name="DamageUp2" parent="Items/DamageUp Items" instance=ExtResource( 10 )]
 position = Vector2( 96, 832 )
+
+[node name="Regular Keys" type="Node" parent="Items"]
+
+[node name="Key" parent="Items/Regular Keys" instance=ExtResource( 11 )]
+position = Vector2( 815.663, 532.132 )
 

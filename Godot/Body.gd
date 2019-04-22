@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var RELOAD_TIME = 0.5
-export var DAMAGE = 100
+export var DAMAGE = 70
 export var HEALTH = 400
 export var MAX_HEALTH = 400
 

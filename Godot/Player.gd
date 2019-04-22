@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var SPEED = 120
 export var RELOAD_TIME = 0.15
 export var DAMAGE = 50
-export var HEALTH = 500
+export var HEALTH = 1000
 export var MAX_HEALTH = 500
 
 const NORMAL_PROJECTILE = preload("Player_Projectile.tscn")
@@ -22,6 +22,7 @@ var alive = true
 var nearbyItem #When an item is on the ground near the player. Usually null
 var equippedItem #The one special item that is equipped. Usually null
 var activeBuffs = {}
+var keys = 0
 
 func _ready():
 	ACTIVE_PROJECTILE = NORMAL_PROJECTILE
@@ -37,6 +38,12 @@ func _process(delta):
 
 func onHealthChange(change): #Negative value for damage
 	GUI.updateCurrentHealth(max(HEALTH,0))
+
+func onKeyPickup(keyType):
+	if keyType == "Regular":
+		keys += 1
+	else:
+		print("Unexpected keytype in onKeyPickup in Player! TBD!")
 
 func turn(angle):
 		PlayerModel.rotation = angle
