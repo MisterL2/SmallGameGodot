@@ -4,7 +4,7 @@
 [ext_resource path="res://TripleShoot.gd" type="Script" id=2]
 [ext_resource path="res://tripleshoot_item_placeolder_nocopyright.png" type="Texture" id=3]
 
-[node name="TripleShoot" instance=ExtResource( 1 )]
+[node name="TripleShoot" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]

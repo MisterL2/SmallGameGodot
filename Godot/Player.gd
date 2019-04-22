@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var SPEED = 120
 export var RELOAD_TIME = 0.15
-export var DAMAGE = 5000
+export var DAMAGE = 50
 export var HEALTH = 1000
 export var MAX_HEALTH = 1000
 
@@ -27,7 +27,7 @@ var alive = true
 var nearbyItem #When an item is on the ground near the player. Usually null
 var equippedItem #The one special item that is equipped. Usually null
 var activeBuffs = {}
-var keys = 5
+var keys = 0
 
 enum Layer {ENVIRONMENT = 1, PLAYER = 2, ENEMY = 4, ITEM = 512, FRIENDLY_ENVIMMUNE_PROJECTILE = 1024, FRIENDLY_PROJECTILE = 2048, ENEMY_PROJECTILE = 4096, ENEMY_ENVIMMUNE_PROJECTILE = 8192, INTERACTABLE = 524288}
 

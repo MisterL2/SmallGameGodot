@@ -14,3 +14,9 @@ v0.3.2
 -Prints "credits" and version number whenever the main scene is created
 -Added TripleShoot Item
 -Added DamageUp Item
+
+v0.4
+-Added Keys
+-Added LevelLock, incl. several graphics for different states (0 keys, 1 key, etc) and an animation as it moves aside upon entering all keys.
+-Enemies no longer get stuck in weird angles when chasing a player
+-Enemies no longer detect players that are behind them
