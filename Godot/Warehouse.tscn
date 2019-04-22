@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://TripleShoot_Item.tscn" type="PackedScene" id=9]
 [ext_resource path="res://DamageUp_Item.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=11]
+[ext_resource path="res://LevelLock.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 400, 1 )
@@ -1211,34 +1212,45 @@ position = Vector2( 192, 512 )
 
 [node name="Health_Item" parent="Items/Health Items" instance=ExtResource( 8 )]
 position = Vector2( 384, 384 )
+collision_layer = 0
 
 [node name="Health_Item2" parent="Items/Health Items" instance=ExtResource( 8 )]
 position = Vector2( 304, 789 )
+collision_layer = 0
 
 [node name="Health_Item3" parent="Items/Health Items" instance=ExtResource( 8 )]
 position = Vector2( 616, 728 )
+collision_layer = 0
 
 [node name="Health_Item4" parent="Items/Health Items" instance=ExtResource( 8 )]
 position = Vector2( 933, 544 )
+collision_layer = 0
 
 [node name="TripleShoot Items" type="Node" parent="Items"]
 
 [node name="TripleShoot" parent="Items/TripleShoot Items" instance=ExtResource( 9 )]
 position = Vector2( 256, 629 )
+collision_layer = 0
 
 [node name="TripleShoot2" parent="Items/TripleShoot Items" instance=ExtResource( 9 )]
 position = Vector2( 704, 216 )
+collision_layer = 0
 
 [node name="DamageUp Items" type="Node" parent="Items"]
 
 [node name="DamageUp" parent="Items/DamageUp Items" instance=ExtResource( 10 )]
 position = Vector2( 544, 164 )
+collision_layer = 0
 
 [node name="DamageUp2" parent="Items/DamageUp Items" instance=ExtResource( 10 )]
 position = Vector2( 96, 832 )
+collision_layer = 0
 
 [node name="Regular Keys" type="Node" parent="Items"]
 
 [node name="Key" parent="Items/Regular Keys" instance=ExtResource( 11 )]
 position = Vector2( 815.663, 532.132 )
+
+[node name="LevelLock" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1008, 516 )
 

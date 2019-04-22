@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Body.gd" type="Script" id=1]
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://SmallHPBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://EnemyPlayerModelFadeout/255.png" type="Texture" id=3]
 [ext_resource path="res://EnemyPlayerModelFadeout/200.png" type="Texture" id=4]

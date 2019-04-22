@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 export var SPEED = 120
 export var RELOAD_TIME = 0.15
-export var DAMAGE = 50
+export var DAMAGE = 5000
 export var HEALTH = 1000
-export var MAX_HEALTH = 500
+export var MAX_HEALTH = 1000
 
 const NORMAL_PROJECTILE = preload("Player_Projectile.tscn")
 const STRONGER_PROJECTILE = preload("Stronger_Player_Projectile.tscn")
@@ -16,13 +16,20 @@ onready var PlayerHitbox = $PlayerHitbox
 onready var GUI = $"../GUI"
 
 var playerMotion = Vector2()
+
 var timeSinceLastShot = 10 #Able to shoot right away
+
+const INTERACTION_COOLDOWN = 0.2
+var timeSinceLastInteraction = 1 #Able to react right away
+
 var alive = true
 
 var nearbyItem #When an item is on the ground near the player. Usually null
 var equippedItem #The one special item that is equipped. Usually null
 var activeBuffs = {}
-var keys = 0
+var keys = 5
+
+enum Layer {ENVIRONMENT = 1, PLAYER = 2, ENEMY = 4, ITEM = 512, FRIENDLY_ENVIMMUNE_PROJECTILE = 1024, FRIENDLY_PROJECTILE = 2048, ENEMY_PROJECTILE = 4096, ENEMY_ENVIMMUNE_PROJECTILE = 8192, INTERACTABLE = 524288}
 
 func _ready():
 	ACTIVE_PROJECTILE = NORMAL_PROJECTILE
@@ -39,11 +46,6 @@ func _process(delta):
 func onHealthChange(change): #Negative value for damage
 	GUI.updateCurrentHealth(max(HEALTH,0))
 
-func onKeyPickup(keyType):
-	if keyType == "Regular":
-		keys += 1
-	else:
-		print("Unexpected keytype in onKeyPickup in Player! TBD!")
 
 func turn(angle):
 		PlayerModel.rotation = angle
@@ -132,8 +134,11 @@ func _physics_process(delta):
 	if not alive:
 		return
 	timeSinceLastShot += delta
+	timeSinceLastInteraction += delta
 	if Input.is_action_just_pressed("ui_shoot") and timeSinceLastShot > RELOAD_TIME:
 		shoot(get_viewport().get_mouse_position())
+	elif Input.is_action_just_pressed("ui_interact"):
+		interact(findNearestInteractable())
 	calculate_player_movement()
 	move_and_slide(playerMotion)
 	
@@ -151,3 +156,22 @@ func onLeaveItem(item):
 		
 func dropItem(itemToBeDropped):
 	pass #Fancy dropping animation, spawn entity back or something
+
+func onKeyPickup(keyType):
+	print("Picked up key!")
+	if keyType == "Regular":
+		keys += 1
+	else:
+		print("Unexpected keytype in onKeyPickup in Player! TBD!")
+
+func interact(nearestInteractable):
+	if nearestInteractable != null and timeSinceLastInteraction > INTERACTION_COOLDOWN: #If there is something to interact
+		nearestInteractable.interact(self)
+		timeSinceLastInteraction = 0
+
+func findNearestInteractable(): #Finds the first interactable that is within 15px of the direction that the player is facing. Might return an empty dictionary.
+	var collision_result = get_world_2d().direct_space_state.intersect_ray(position,position + (get_viewport().get_mouse_position()-position).normalized()*30,[self], Layer.INTERACTABLE)
+	if not collision_result:
+		return null
+	else:
+		return collision_result.collider

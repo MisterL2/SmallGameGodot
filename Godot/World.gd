@@ -7,7 +7,7 @@ onready var PLAYER = $Player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
-	print("Welcome to my small Godot Game v0.3.2")
+	print("Welcome to my small Godot Game v0.4")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
