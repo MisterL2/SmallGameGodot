@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Example game"
-run/main_scene="res://Warehouse.tscn"
+run/main_scene="res://Background.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Base="*res://Base.tscn"
 
 [display]
 

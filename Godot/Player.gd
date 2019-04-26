@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var SPEED = 120
 export var RELOAD_TIME = 0.15
-export var DAMAGE = 50
+export var DAMAGE = 100
 export var HEALTH = 1000
 export var MAX_HEALTH = 1000
 
@@ -29,10 +29,25 @@ var equippedItem #The one special item that is equipped. Usually null
 var activeBuffs = {}
 var keys = 0
 
+var difficulty = 'Easy' #Derived from base regularly
+
 enum Layer {ENVIRONMENT = 1, PLAYER = 2, ENEMY = 4, ITEM = 512, FRIENDLY_ENVIMMUNE_PROJECTILE = 1024, FRIENDLY_PROJECTILE = 2048, ENEMY_PROJECTILE = 4096, ENEMY_ENVIMMUNE_PROJECTILE = 8192, INTERACTABLE = 524288}
+const difficulties = {'Easy':1, 'Medium':0.75, 'Hard':0.5}
 
 func _ready():
 	ACTIVE_PROJECTILE = NORMAL_PROJECTILE
+	on_difficulty_change($"/root/Base".DIFFICULTY) #Sets everything up for difficulty change. Includes GUI updates!
+
+
+func on_difficulty_change(newDifficulty):
+	print("Player difficulty changed!")
+	var modifier = difficulties[newDifficulty] / difficulties[self.difficulty]
+	self.difficulty = newDifficulty
+	
+	DAMAGE *= modifier
+	MAX_HEALTH *= modifier
+	HEALTH *= modifier
+	
 	GUI.updateMaxHealth(MAX_HEALTH)
 	GUI.updateCurrentHealth(HEALTH)
 
@@ -46,14 +61,13 @@ func _process(delta):
 func onHealthChange(change): #Negative value for damage
 	GUI.updateCurrentHealth(max(HEALTH,0))
 
-
 func turn(angle):
 		PlayerModel.rotation = angle
 		PlayerHitbox.rotation = angle
 
 func onPlayerDeath():
-	self.queue_free()
-	alive = false
+	alive = false #Prevents player from acting during the death animation
+	$"/root/Base".onPlayerDeath()
 	#Play death animation / "You lose" screen
 	print("YOU DIED!")
 
@@ -126,11 +140,13 @@ func _input(event):
 		turn((get_viewport().get_mouse_position() - self.position).angle())
 
 func use_buff(buffName):
-		activeBuffs[buffName] -= 1
-		if activeBuffs[buffName] == 0:
-			activeBuffs.erase(buffName)
+	activeBuffs[buffName] -= 1
+	if activeBuffs[buffName] == 0:
+		activeBuffs.erase(buffName)
 
 func _physics_process(delta):
+	if self.difficulty != $"/root/Base".DIFFICULTY:
+		self.on_difficulty_change($"/root/Base".DIFFICULTY)
 	if not alive:
 		return
 	timeSinceLastShot += delta

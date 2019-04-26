@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://DifficultyLabel.gd" type="Script" id=3]
+[ext_resource path="res://DifficultyButton.gd" type="Script" id=4]
+[ext_resource path="res://StartGame.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+pause_mode = 2
+margin_right = 592.0
+margin_bottom = 440.0
+script = ExtResource( 1 )
+
+[node name="UpperRow" type="VBoxContainer" parent="."]
+margin_right = 1000.0
+margin_bottom = 479.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UpperRow"]
+margin_right = 1000.0
+patch_margin_left = 1000
+
+[node name="DifficultySelection" type="VBoxContainer" parent="UpperRow/NinePatchRect"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -304.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpperRow/NinePatchRect/DifficultySelection"]
+margin_right = 304.0
+margin_bottom = 60.0
+
+[node name="StaticLabel" type="Label" parent="UpperRow/NinePatchRect/DifficultySelection/HBoxContainer"]
+margin_right = 150.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 150, 60 )
+custom_fonts/font = SubResource( 1 )
+text = "Difficulty:"
+align = 1
+valign = 1
+
+[node name="DifficultyLabel" type="Label" parent="UpperRow/NinePatchRect/DifficultySelection/HBoxContainer"]
+margin_left = 154.0
+margin_right = 304.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 150, 60 )
+custom_fonts/font = SubResource( 1 )
+text = "Hard"
+valign = 1
+script = ExtResource( 3 )
+
+[node name="Easy" type="Button" parent="UpperRow/NinePatchRect/DifficultySelection"]
+margin_top = 64.0
+margin_right = 304.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="UpperRow/NinePatchRect/DifficultySelection/Easy"]
+margin_left = 86.0
+margin_top = 22.0
+margin_right = 209.0
+margin_bottom = 79.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "Easy"
+align = 1
+valign = 1
+
+[node name="Medium" type="Button" parent="UpperRow/NinePatchRect/DifficultySelection"]
+margin_top = 168.0
+margin_right = 304.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="UpperRow/NinePatchRect/DifficultySelection/Medium"]
+margin_left = 54.0
+margin_top = 26.0
+margin_right = 265.0
+margin_bottom = 83.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "Medium"
+align = 1
+valign = 1
+
+[node name="Hard" type="Button" parent="UpperRow/NinePatchRect/DifficultySelection"]
+margin_top = 272.0
+margin_right = 304.0
+margin_bottom = 372.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="UpperRow/NinePatchRect/DifficultySelection/Hard"]
+margin_left = 86.0
+margin_top = 30.0
+margin_right = 223.0
+margin_bottom = 87.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "Hard"
+align = 1
+valign = 1
+
+[node name="MiddleRow" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BottomRow" type="HBoxContainer" parent="."]
+margin_top = 500.0
+margin_right = 1000.0
+margin_bottom = 479.0
+alignment = 1
+
+[node name="StartGame" type="Button" parent="BottomRow"]
+visible = false
+margin_left = 345.0
+margin_right = 655.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 3 )
+text = "Start Game"
+script = ExtResource( 5 )
+
+[connection signal="pressed" from="UpperRow/NinePatchRect/DifficultySelection/Easy" to="UpperRow/NinePatchRect/DifficultySelection/Easy" method="_on_pressed"]
+[connection signal="pressed" from="UpperRow/NinePatchRect/DifficultySelection/Medium" to="UpperRow/NinePatchRect/DifficultySelection/Medium" method="_on_pressed"]
+[connection signal="pressed" from="UpperRow/NinePatchRect/DifficultySelection/Hard" to="UpperRow/NinePatchRect/DifficultySelection/Hard" method="_on_pressed"]
+[connection signal="pressed" from="BottomRow/StartGame" to="BottomRow/StartGame" method="_on_pressed"]
