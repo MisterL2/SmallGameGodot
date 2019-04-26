@@ -20,3 +20,7 @@ v0.4
 -Added LevelLock, incl. several graphics for different states (0 keys, 1 key, etc) and an animation as it moves aside upon entering all keys.
 -Enemies no longer get stuck in weird angles when chasing a player
 -Enemies no longer detect players that are behind them
+
+v0.5
+-Added ability to pause/unpause the game using SPACE at any time
+-Players can now choose difficulty levels before AND during the game!
