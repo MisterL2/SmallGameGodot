@@ -25,7 +25,7 @@ Base="*res://Base.tscn"
 
 [display]
 
-window/size/height=900
+window/size/height=864
 mouse_cursor/custom_image="res://Crosshair.png"
 
 [input]

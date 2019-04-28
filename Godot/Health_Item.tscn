@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Health_Item.gd" type="Script" id=2]
-[ext_resource path="res://health_item.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/health_item_small.png" type="Texture" id=3]
 
 [node name="Health_Item" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

@@ -24,3 +24,8 @@ v0.4
 v0.5
 -Added ability to pause/unpause the game using SPACE at any time
 -Players can now choose difficulty levels before AND during the game!
+
+v0.5.1
+-BIG visual improvement to the Main Menu
+-Difficulty can no longer be changed to what it was before
+-Item hitboxes (and the health sprite) were made smaller
