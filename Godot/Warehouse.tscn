@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://DamageUp_Item.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=10]
 [ext_resource path="res://LevelLock.tscn" type="PackedScene" id=11]
+[ext_resource path="res://LevelGoal.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 400, 1 )
@@ -1261,4 +1262,7 @@ position = Vector2( 976, 116 )
 
 [node name="LevelLock" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1008, 480 )
+
+[node name="LevelGoal" parent="." instance=ExtResource( 12 )]
+position = Vector2( 139, 152 )
 

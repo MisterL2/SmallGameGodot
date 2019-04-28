@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/50.png-40609d25563f08e0fb52c49d94da2364.stex"
+path="res://.import/index.png-ed0692f93101a30310c365c5a3bfa34e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EnemyPlayerModelFadeout/50.png"
-dest_files=[ "res://.import/50.png-40609d25563f08e0fb52c49d94da2364.stex" ]
+source_file="res://Releases/HTML_Source/index.png"
+dest_files=[ "res://.import/index.png-ed0692f93101a30310c365c5a3bfa34e.stex" ]
 
 [params]
 

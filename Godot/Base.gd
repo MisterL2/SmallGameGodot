@@ -4,6 +4,9 @@ var current_scene = null #Always the game scene or null, never the menu
 var current_scene_path = null
 var ENEMIES = [] 
 var PLAYER = null
+var serializedPlayer = [0,0,0,{},0] #HP, MaxHP, Damage, activeBuffs, keys
+
+enum Layer {ENVIRONMENT = 1, PLAYER = 2, ENEMY = 4, ITEM = 512, FRIENDLY_ENVIMMUNE_PROJECTILE = 1024, FRIENDLY_PROJECTILE = 2048, ENEMY_PROJECTILE = 4096, ENEMY_ENVIMMUNE_PROJECTILE = 8192, INTERACTABLE = 524288}
 
 var DIFFICULTY = 'Hard'
 var gameState = 'Initial' #Pause always opens up menu
@@ -40,7 +43,7 @@ func close_menu():
 	$"/root/MainMenu".queue_free()
 	get_tree().set_current_scene(current_scene) #current_scene is the main scene, never the menu
 
-func open_scene(path):	
+func open_scene(path):
 	var s = ResourceLoader.load(path)
     # Instance the new scene.
 	var new_scene = s.instance()
@@ -52,15 +55,9 @@ func open_scene(path):
 	return new_scene
 
 func goto_scene(path):
-    # This function will usually be called from a signal callback,
-    # or some other function in the current scene.
-    # Deleting the current scene at this point is
-    # a bad idea, because it may still be executing code.
-    # This will result in a crash or unexpected behavior.
-
-    # The solution is to defer the load to a later time, when
-    # we can be sure that no code from the current scene is running:
-    call_deferred("_deferred_goto_scene", path)
+	if is_instance_valid(PLAYER):
+		serializedPlayer = [PLAYER.HEALTH, PLAYER.MAX_HEALTH, PLAYER.DAMAGE, PLAYER.activeBuffs, PLAYER.keys]
+	call_deferred("_deferred_goto_scene", path)
 
 
 func _deferred_goto_scene(path): #For actual scene changes, not menu
@@ -76,6 +73,13 @@ func _deferred_goto_scene(path): #For actual scene changes, not menu
 		load_enemies()
 	if (PLAYER == null and gameState == 'Initial') or gameState == 'Restart': #UNLIKE ENEMIES, Player is only received from the FIRST scene, and then copied into future scenes!
 		load_player()
+	elif gameState == 'Active' and not is_instance_valid(PLAYER): #Player deleted on newlevel
+		PLAYER = load("res://Player.tscn").instance() #Creates new player instance
+		PLAYER.set_position(Vector2(300,300))
+		current_scene.add_child(PLAYER) #Important! Otherwise PLAYER does not appear.
+		unpack_player()
+		
+		print("Player loaded into new scene!")
 		
 	#Update gameState (Must be HERE for this gameState due to deferred call!)
 	if gameState == 'Initial':
@@ -107,16 +111,9 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_select"): #Restart game when spacebar is pressed
 		if gameState == 'GameOver':
-			print(PLAYER)
-			#get_tree().reload_current_scene() #Restarting game
 			gameState = 'Restart'
-			goto_scene(current_scene_path)
-			print(PLAYER)
-			
+			goto_scene(current_scene_path)			
 			get_tree().paused = false
-			
-			print(PLAYER)
-			print("........")
 			
 		elif gameState == 'Active':
 			pause_game()
@@ -149,3 +146,11 @@ func onPlayerDeath():
 
 func get_player_pos():
 	return PLAYER.position
+	
+func unpack_player():
+	PLAYER.set_health(serializedPlayer[0],serializedPlayer[1])
+	PLAYER.DAMAGE = serializedPlayer[2]
+	PLAYER.activeBuffs = serializedPlayer[3]
+	PLAYER.keys = serializedPlayer[4] #Should always be zero on level-change rn
+	if PLAYER.keys > 0:
+		print("Player has keys after level change. Intended or not?")

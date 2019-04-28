@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/200.png-e7d9d3798435150301cffecbddba1e8c.stex"
+path="res://.import/Boss1.png-b2f9ed9f372cf91d5a7d29a854b917da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EnemyPlayerModelFadeout/200.png"
-dest_files=[ "res://.import/200.png-e7d9d3798435150301cffecbddba1e8c.stex" ]
+source_file="res://Graphics/Boss/Boss1.png"
+dest_files=[ "res://.import/Boss1.png-b2f9ed9f372cf91d5a7d29a854b917da.stex" ]
 
 [params]
 

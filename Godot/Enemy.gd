@@ -13,7 +13,7 @@ var timeSinceLastShot = 0
 export var SPEED = 100
 
 
-enum Layer {ENVIRONMENT = 1, PLAYER = 2, ENEMY = 4, ITEM = 512, FRIENDLY_ENVIMMUNE_PROJECTILE = 1024, FRIENDLY_PROJECTILE = 2048, ENEMY_PROJECTILE = 4096, ENEMY_ENVIMMUNE_PROJECTILE = 8192, INTERACTABLE = 524288}
+onready var Layer = $"/root/Base".Layer
 
 
 #const standardVectors = [Vector2(0,1),Vector2(0,-1),Vector2(1,0),Vector2(1,1),Vector2(1,-1),Vector2(-1,1),Vector2(-1,0),Vector2(-1,-1)]
@@ -31,8 +31,7 @@ var directionChange = false
 
 func _ready():
 	$HealthBar.max_value = MAX_HEALTH
-	$HealthBar.value = HEALTH	
-	$AnimatedSprite.connect("animation_finished",self,"death_complete")
+	$HealthBar.value = HEALTH
 	directionVector = standardVectors[randi() % standardVectors.size()]
 	var collisionShape = $CollisionShape2D.shape
 	if collisionShape.is_class("CircleShape2D"):
@@ -45,11 +44,9 @@ func _ready():
 func onDeath():
 	alive = false
 	$CollisionShape2D.queue_free() #No more collisions
-	$AnimatedSprite.animateDeath()
-	
-func death_complete():
-	self.queue_free()
-	
+	$AnimationPlayer.play("death_animation")
+
+
 func takeDamage(damage): 
 	#Add special functionality here later
 	HEALTH -= damage
@@ -57,7 +54,7 @@ func takeDamage(damage):
 	if HEALTH <= 0:
 		onDeath()
 		
-func onProjectileHit(damage):
+func onProjectileHit(damage,bodypart):
 	#print("Enemy hit for %d damage!" % damage)
 	takeDamage(damage)
 	#print("Enemy HP: %d / 400" % HEALTH)
@@ -135,8 +132,8 @@ func follow_player(playerPos):
 	var vectorDifference = playerPos - position
 	directionVector = vectorDifference.normalized()
 	if vectorDifference.length() < 100:
-		directionVector /= 100 #Almost no movement, but keeps facing the right direction
-	
+		directionVector /= 1000 #Almost no movement, but keeps facing the right direction
+
 func calculate_surrounding_walls():
 	var new_surrounding_walls = []
 	for vector in standardVectors:
@@ -145,7 +142,7 @@ func calculate_surrounding_walls():
 		else:
 			new_surrounding_walls.append(null)
 	return new_surrounding_walls
-	
+
 func maybeTurn():
 	var new_surrounding_walls = calculate_surrounding_walls()
 	for i in range(4):
@@ -156,3 +153,9 @@ func maybeTurn():
 					surroundingWalls = new_surrounding_walls
 					framesTillPlannedMove = 8
 	surroundingWalls = new_surrounding_walls
+
+func change_opacity():
+	$Sprite.modulate.a = max(0,$Sprite.modulate.a - 0.1)
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	self.queue_free()

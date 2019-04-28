@@ -11,5 +11,5 @@ func takeDamage(damage):
 func onDeath():
 	pass #Fancy particle animation
 
-func onProjectileHit(damage):
+func onProjectileHit(damage,bodypart=null):
 	takeDamage(damage)

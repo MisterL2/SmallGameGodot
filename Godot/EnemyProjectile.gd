@@ -10,7 +10,7 @@ func _physics_process(delta):
 		if collisionObject != null:
 			self.queue_free() #Delete this node and its children at the end of the frame
 			if collisionObject.get_collider().has_method("onProjectileHit"):
-				collisionObject.get_collider().onProjectileHit(damage)
+				collisionObject.get_collider().onProjectileHit(damage,collisionObject.collider_shape)
 
 func shoot(startPos, normalizedDirectionVector, damage):
 	self.damage = damage

@@ -22,12 +22,15 @@ var timeSinceLastShot = 10 #Able to shoot right away
 const INTERACTION_COOLDOWN = 0.2
 var timeSinceLastInteraction = 1 #Able to react right away
 
+var move_disabled_time = 0
 var alive = true
 
 var nearbyItem #When an item is on the ground near the player. Usually null
 var equippedItem #The one special item that is equipped. Usually null
 var activeBuffs = {}
 var keys = 0
+
+var pickedName = 'Player' #Player-chosen name, can be used later for dialog. DO NOT try to use the field "name", as it will break other scripts which type-check the player this way!
 
 var difficulty = 'Easy' #Derived from base regularly
 
@@ -36,8 +39,8 @@ const difficulties = {'Easy':1, 'Medium':0.75, 'Hard':0.5}
 
 func _ready():
 	ACTIVE_PROJECTILE = NORMAL_PROJECTILE
-	on_difficulty_change($"/root/Base".DIFFICULTY) #Sets everything up for difficulty change. Includes GUI updates!
-
+	if $"/root/Base".gameState == 'Active':
+		difficulty = $"/root/Base".DIFFICULTY #Prevents the difficulty modifier from reducing health when switching scenes
 
 func on_difficulty_change(newDifficulty):
 	print("Player difficulty changed!")
@@ -47,9 +50,7 @@ func on_difficulty_change(newDifficulty):
 	DAMAGE *= modifier
 	MAX_HEALTH *= modifier
 	HEALTH *= modifier
-	
-	GUI.updateMaxHealth(MAX_HEALTH)
-	GUI.updateCurrentHealth(HEALTH)
+	onHealthChange()
 
 func _process(delta):
 	if nearbyItem != null and Input.is_action_just_pressed("ui_pickup_item"):
@@ -58,8 +59,15 @@ func _process(delta):
 				dropItem(equippedItem)
 		nearbyItem.pickup(self)
 
-func onHealthChange(change): #Negative value for damage
+func onHealthChange(change=0): #Negative value for damage
+	print("Health change " + str(change))
+	GUI.updateMaxHealth(MAX_HEALTH)
 	GUI.updateCurrentHealth(max(HEALTH,0))
+
+func set_health(health=HEALTH,max_health=MAX_HEALTH):
+	HEALTH = health
+	MAX_HEALTH = max_health
+	onHealthChange()
 
 func turn(angle):
 		PlayerModel.rotation = angle
@@ -155,10 +163,14 @@ func _physics_process(delta):
 		shoot(get_viewport().get_mouse_position())
 	elif Input.is_action_just_pressed("ui_interact"):
 		interact(findNearestInteractable())
-	calculate_player_movement()
-	move_and_slide(playerMotion)
+	if move_disabled_time > 0:
+		move_disabled_time -= delta
+	else:
+		calculate_player_movement()
+	#GDScript does not support kwargs, so i have to supply all the other parameters to set infinite_inertia to false
+	move_and_slide(playerMotion,Vector2( 0, 0 ),false,4,0.785398,false) #Calculated either way, but if move_disabled_time is on, the user inputs are ignored
 	
-func onProjectileHit(damage):
+func onProjectileHit(damage,bodypart=null):
 	#print("You were hit for %d damage!" % damage)
 	takeDamage(damage)
 	#print("Your HP: %d / 1000" % HEALTH)

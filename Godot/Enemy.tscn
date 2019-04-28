@@ -1,23 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://SmallHPBar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://EnemyPlayerModelFadeout/255.png" type="Texture" id=3]
-[ext_resource path="res://EnemyPlayerModelFadeout/200.png" type="Texture" id=4]
-[ext_resource path="res://EnemyPlayerModelFadeout/150.png" type="Texture" id=5]
-[ext_resource path="res://EnemyPlayerModelFadeout/100.png" type="Texture" id=6]
-[ext_resource path="res://EnemyPlayerModelFadeout/50.png" type="Texture" id=7]
-[ext_resource path="res://AnimatedSprite.gd" type="Script" id=8]
+[ext_resource path="res://EnemyPlayermodel.png" type="Texture" id=3]
+[ext_resource path="res://Death_animator.tscn" type="PackedScene" id=4]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "DeathFade",
-"speed": 5.0
-} ]
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 13.0
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -31,12 +19,13 @@ margin_top = -19.0
 margin_right = 10.0
 margin_bottom = -15.0
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.026, 0.026 )
-frames = SubResource( 1 )
-animation = "DeathFade"
-script = ExtResource( 8 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
+[node name="AnimationPlayer" parent="." instance=ExtResource( 4 )]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
