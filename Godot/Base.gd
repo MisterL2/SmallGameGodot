@@ -69,17 +69,22 @@ func _deferred_goto_scene(path): #For actual scene changes, not menu
 	current_scene = open_scene(path)
 	current_scene_path = path #Only called for actual scene changes, not menu! Produces hard-to-find bugs when restarting otherwise!
 	
+	if 'YouWin.tscn' in path:
+		print("Congratulations, you win!")
+		return
+		
 	if gameState == 'Initial' or gameState == 'Active' or gameState == 'Restart':
 		load_enemies()
-	if (PLAYER == null and gameState == 'Initial') or gameState == 'Restart': #UNLIKE ENEMIES, Player is only received from the FIRST scene, and then copied into future scenes!
+	if gameState == 'Initial': #UNLIKE ENEMIES, Player is only received from the FIRST scene, and then copied into future scenes!
 		load_player()
-	elif gameState == 'Active' and not is_instance_valid(PLAYER): #Player deleted on newlevel
+	elif gameState in ['Active','Restart']: #Player deleted on newlevel. DONT check for is_instance_valid yet, because player may not have finished the .queue_free() yet!
 		PLAYER = load("res://Player.tscn").instance() #Creates new player instance
-		PLAYER.set_position(Vector2(300,300))
+		PLAYER.set_position(Vector2(80,464))
 		current_scene.add_child(PLAYER) #Important! Otherwise PLAYER does not appear.
-		unpack_player()
-		
-		print("Player loaded into new scene!")
+		if gameState == 'Active':
+			unpack_player() #Stats from previous scene are remembered
+	PLAYER.on_difficulty_change(DIFFICULTY) #Doesn't change anything, but updates the GUI
+
 		
 	#Update gameState (Must be HERE for this gameState due to deferred call!)
 	if gameState == 'Initial':
@@ -112,7 +117,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_select"): #Restart game when spacebar is pressed
 		if gameState == 'GameOver':
 			gameState = 'Restart'
-			goto_scene(current_scene_path)			
+			goto_scene(current_scene_path)
 			get_tree().paused = false
 			
 		elif gameState == 'Active':
@@ -125,13 +130,13 @@ func _physics_process(delta):
 		if not is_instance_valid(PLAYER): #Should only occur on game restart
 			print("Invalid")
 			print(PLAYER)
-			#load_player()
-			#load_enemies()
 			return
 		var playerPos = get_player_pos()
-		var toBeRemoved = []
+		
 		if not ENEMIES:
 			print("All enemies dead!")
+		
+		var toBeRemoved = []
 		for enemy in ENEMIES:
 			if is_instance_valid(enemy): #Excludes enemies that were previously freed
 				enemy.maybeShoot(delta, playerPos)

@@ -29,3 +29,9 @@ v0.5.1
 -BIG visual improvement to the Main Menu
 -Difficulty can no longer be changed to what it was before
 -Item hitboxes (and the health sprite) were made smaller
+
+v0.6
+-Added massive supercool bossfight after 20h with many amazing effects and a new scene!
+-^^^^^^^^^^^^^^^^^^^^^^THIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-Technology for switching scenes has been created
+-GG screen

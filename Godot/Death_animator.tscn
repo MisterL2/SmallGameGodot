@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "death_animation"
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -48,5 +48,5 @@ tracks/0/keys = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer"]
-anims/death_animation = SubResource( 6 )
+anims/death_animation = SubResource( 1 )
 

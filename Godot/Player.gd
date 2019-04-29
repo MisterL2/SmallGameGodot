@@ -38,6 +38,7 @@ enum Layer {ENVIRONMENT = 1, PLAYER = 2, ENEMY = 4, ITEM = 512, FRIENDLY_ENVIMMU
 const difficulties = {'Easy':1, 'Medium':0.75, 'Hard':0.5}
 
 func _ready():
+	print("PLAYER READY!")
 	ACTIVE_PROJECTILE = NORMAL_PROJECTILE
 	if $"/root/Base".gameState == 'Active':
 		difficulty = $"/root/Base".DIFFICULTY #Prevents the difficulty modifier from reducing health when switching scenes
@@ -75,11 +76,14 @@ func turn(angle):
 
 func onPlayerDeath():
 	alive = false #Prevents player from acting during the death animation
+	self.queue_free()
 	$"/root/Base".onPlayerDeath()
 	#Play death animation / "You lose" screen
 	print("YOU DIED!")
 
-func takeDamage(damage): 
+func takeDamage(damage):
+	if not alive:
+		return
 	#Add special functionality here later
 	HEALTH -= damage
 	onHealthChange(-damage)
@@ -87,7 +91,10 @@ func takeDamage(damage):
 		onPlayerDeath()
 
 func gainHealth(healthGain):
+	if not alive:
+		return
 	#Add special functionality here
+	healthGain *= difficulties[difficulty] #less healthgain on higher difficulty
 	HEALTH = min(HEALTH+healthGain,MAX_HEALTH)
 	onHealthChange(healthGain)
 
