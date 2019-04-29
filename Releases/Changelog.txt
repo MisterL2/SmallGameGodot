@@ -35,3 +35,6 @@ v0.6
 -^^^^^^^^^^^^^^^^^^^^^^THIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 -Technology for switching scenes has been created
 -GG screen
+
+v0.6.1
+-Added Controls-Info (contribution by github/reclaimingmytime)

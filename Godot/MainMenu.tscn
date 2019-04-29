@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Graphics/Buttons/Blue Button pressed.png" type="Texture" id=16]
 [ext_resource path="res://Graphics/Buttons/Blue Button.png" type="Texture" id=17]
 [ext_resource path="res://StartGame.gd" type="Script" id=18]
+[ext_resource path="res://Graphics/Controls.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -257,6 +258,11 @@ custom_styles/normal = SubResource( 20 )
 custom_fonts/font = SubResource( 21 )
 text = "Play"
 script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 392, 304 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 19 )
 
 [connection signal="pressed" from="UpperRow/NinePatchRect/DifficultySelection/HBoxContainer/DifficultyButtons/Easy" to="UpperRow/NinePatchRect/DifficultySelection/HBoxContainer/DifficultyButtons/Easy" method="_on_pressed"]
 [connection signal="pressed" from="UpperRow/NinePatchRect/DifficultySelection/HBoxContainer/DifficultyButtons/Medium" to="UpperRow/NinePatchRect/DifficultySelection/HBoxContainer/DifficultyButtons/Medium" method="_on_pressed"]

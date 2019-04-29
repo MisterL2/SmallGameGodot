@@ -76,8 +76,8 @@ func turn(angle):
 
 func onPlayerDeath():
 	alive = false #Prevents player from acting during the death animation
-	self.queue_free()
 	$"/root/Base".onPlayerDeath()
+	self.queue_free()
 	#Play death animation / "You lose" screen
 	print("YOU DIED!")
 
