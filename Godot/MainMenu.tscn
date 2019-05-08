@@ -241,13 +241,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="BottomRow" type="HBoxContainer" parent="."]
-margin_top = 704.0
+margin_top = 608.0
 margin_right = 1000.0
-margin_bottom = 794.0
+margin_bottom = 698.0
 alignment = 1
 
 [node name="StartGame" type="Button" parent="BottomRow"]
-visible = false
 margin_left = 400.0
 margin_right = 600.0
 margin_bottom = 90.0

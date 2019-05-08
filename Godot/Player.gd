@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var SPEED = 120
-export var RELOAD_TIME = 0.15
+export var RELOAD_TIME = 0.2
 export var DAMAGE = 100
 export var HEALTH = 1000
 export var MAX_HEALTH = 1000
@@ -166,7 +166,7 @@ func _physics_process(delta):
 		return
 	timeSinceLastShot += delta
 	timeSinceLastInteraction += delta
-	if Input.is_action_just_pressed("ui_shoot") and timeSinceLastShot > RELOAD_TIME:
+	if Input.is_action_pressed("ui_shoot") and timeSinceLastShot > RELOAD_TIME:
 		shoot(get_viewport().get_mouse_position())
 	elif Input.is_action_just_pressed("ui_interact"):
 		interact(findNearestInteractable())

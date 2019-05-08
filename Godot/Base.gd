@@ -8,19 +8,19 @@ var serializedPlayer = [0,0,0,{},0] #HP, MaxHP, Damage, activeBuffs, keys
 
 enum Layer {ENVIRONMENT = 1, PLAYER = 2, ENEMY = 4, ITEM = 512, FRIENDLY_ENVIMMUNE_PROJECTILE = 1024, FRIENDLY_PROJECTILE = 2048, ENEMY_PROJECTILE = 4096, ENEMY_ENVIMMUNE_PROJECTILE = 8192, INTERACTABLE = 524288}
 
-var DIFFICULTY = 'Hard'
+var DIFFICULTY = 'Medium'
 var gameState = 'Initial' #Pause always opens up menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Welcome to my small Godot Game v0.5")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	print("Welcome to my small Godot Game v0.6.2")
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	call_deferred("open_menu")
 
 func start_game():
 	close_menu()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	print("Starting new game with difficulty " + DIFFICULTY)
 	goto_scene("res://Warehouse.tscn")
 
@@ -71,18 +71,20 @@ func _deferred_goto_scene(path): #For actual scene changes, not menu
 	
 	if 'YouWin.tscn' in path:
 		print("Congratulations, you win!")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) #Frees mouse again at the end
 		return
 		
-	if gameState == 'Initial' or gameState == 'Active' or gameState == 'Restart':
+	if gameState in ['Initial','Active','Restart'] :
 		load_enemies()
-	if gameState == 'Initial': #UNLIKE ENEMIES, Player is only received from the FIRST scene, and then copied into future scenes!
-		load_player()
-	elif gameState in ['Active','Restart']: #Player deleted on newlevel. DONT check for is_instance_valid yet, because player may not have finished the .queue_free() yet!
+	if gameState in ['Initial','Active','Restart'] and (not is_instance_valid(PLAYER) or PLAYER.is_queued_for_deletion()): #Player deleted on newlevel.
 		PLAYER = load("res://Player.tscn").instance() #Creates new player instance
 		PLAYER.set_position(Vector2(80,464))
 		current_scene.add_child(PLAYER) #Important! Otherwise PLAYER does not appear.
 		if gameState == 'Active':
 			unpack_player() #Stats from previous scene are remembered
+	else:
+		print("CRITICAL: Player respawn fail!")
+	print(PLAYER)
 	PLAYER.on_difficulty_change(DIFFICULTY) #Doesn't change anything, but updates the GUI
 
 		
@@ -91,10 +93,6 @@ func _deferred_goto_scene(path): #For actual scene changes, not menu
 		gameState = 'Active'
 	elif gameState == 'Restart':
 		gameState = 'Active'
-
-func load_player():
-	print("Loading player...")
-	PLAYER = current_scene.get_node("Player")
 
 func load_enemies():
 	print("Loading enemies...")
@@ -124,8 +122,14 @@ func _process(delta):
 			pause_game()
 		elif gameState == 'Paused':
 			unpause_game()
+	
+	if Input.is_action_just_pressed("reset"):
+		get_tree().paused = false
+		goto_scene(current_scene_path)
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("next_level_cheat"):
+		current_scene.get_node("LevelGoal")._on_LevelGoal_reached(null) #Moves to next level
 	if gameState == 'Active':
 		if not is_instance_valid(PLAYER): #Should only occur on game restart
 			print("Invalid")

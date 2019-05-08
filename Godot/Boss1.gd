@@ -18,6 +18,7 @@ var alive = true
 var timeSinceLastRotationChange = 0
 var waiting_to_change_rotation = false
 
+var speed = 100
 
 onready var Layer = $"/root/Base".Layer
 const PROJECTILE = preload("Enemy_Projectile.tscn")
@@ -79,9 +80,11 @@ func maybeShoot(delta,playerPos):
 		if laser_active:
 			shoot_laser_rays()
 		
-	var speed = 50
 	if boss_mode == 1:
 		speed = 100
+	else:
+		speed = 50
+		
 	set_linear_velocity((playerPos - position).normalized() * speed)
 	follow_player(playerPos)
 	stop_before_wall() #Prevents it from hitting a wall (using several raycasts)
@@ -143,7 +146,7 @@ func follow_player(playerPos):
 
 func stop_before_wall():
 	var surroundings = get_world_2d().direct_space_state
-	var vectors = [Vector2(105,0),Vector2(-105,0),Vector2(0,105),Vector2(0,-105)]
+	var vectors = [Vector2(115,0),Vector2(-115,0),Vector2(0,115),Vector2(0,-115)]
 	for p in range(4):
 		for i in range(4):
 			var result = surroundings.intersect_ray(position + vectors[p]/2,position + vectors[p]/2 + vectors[i], [self], Layer.ENEMY + Layer.ENVIRONMENT)
