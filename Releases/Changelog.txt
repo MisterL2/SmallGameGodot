@@ -38,3 +38,12 @@ v0.6
 
 v0.6.1
 -Added Controls-Info (contribution by github/reclaimingmytime)
+
+v0.6.2
+-Made game smaller, so it isnt cut off screen
+-Adjusted scenes to smaller game size
+-Added new image for damageUp
+-Hopefully fixed bug with Boss getting stuck
+-Should have fixed all respawn bugs
+-Added hotkeys to reset level / skip level
+-Mouse is only 'trapped' once the player presses "Start" and untraps when they beat the game
